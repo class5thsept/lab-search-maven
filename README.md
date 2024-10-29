@@ -4,8 +4,8 @@ A lab on linear and binary search.
 
 Authors:
 
-* Your Name Here
-* Your Name Here
+* Leonardo Alves Nunes
+* Paden Houck
 * Samuel A. Rebelsky (starter code)
 
-This code may be found at <INSERT-URL>. Original code at <https://github.com/Grinnell-CSC207/lab-search-maven>.
+This code may be found at <https://github.com/class5thsept/lab-search-maven>. Original code at <https://github.com/Grinnell-CSC207/lab-search-maven>.
