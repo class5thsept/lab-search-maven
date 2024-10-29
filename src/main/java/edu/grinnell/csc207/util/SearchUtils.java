@@ -1,6 +1,7 @@
 package edu.grinnell.csc207.util;
 
 import java.util.function.Predicate;
+import edu.grinnell.csc207.experiments.SearchExperiments;
 
 /**
  * Assorted utilities for searching structures.
@@ -43,6 +44,7 @@ public class SearchUtils {
       } else {
         lowerBound = middleBound + 1;
       }
+      SearchExperiments.count += 1;
     }
     throw new Exception();
   } // iterativeBinarySearch
@@ -65,7 +67,20 @@ public class SearchUtils {
    *   values[index] == val
    */
   static int recursiveBinarySearch(int[] vals, int i) throws Exception {
-    return 0;   // STUB
+    return recursiveBinarySearchHelper(vals,i,0,vals.length);   // STUB
+  } // recursiveBinarySearch
+
+  static int recursiveBinarySearchHelper(int[] vals, int i, int lowerBound,int upperBound) throws Exception {
+    if (lowerBound > upperBound) {throw new Exception();}
+    int middleBound = (int) (upperBound + lowerBound) / 2;
+    if (vals[middleBound] == i) {
+      return middleBound;
+    } else if (vals[middleBound] < i) {
+      return recursiveBinarySearchHelper(vals, i,middleBound + 1, upperBound);
+    } else {
+      return recursiveBinarySearchHelper(vals, i,lowerBound, middleBound -1);
+    }
+
   } // recursiveBinarySearch
 
   /**
@@ -144,7 +159,8 @@ public class SearchUtils {
   public static int binarySearch(int[] vals, int i) throws Exception {
     //return 0;
     return iterativeBinarySearch(vals, i);
-    // return recursiveBinarySearch(vals, i);
+    
+    //return recursiveBinarySearch(vals, i);
   } // binarySearch
 
 } // class SearchUtils

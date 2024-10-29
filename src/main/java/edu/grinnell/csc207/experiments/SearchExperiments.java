@@ -23,6 +23,7 @@ public class SearchExperiments {
    * @param args
    *   Command-line arguments. Ignored.
    */
+  public static int count = 0;
   public static void main(String[] args) {
     PrintWriter pen = new PrintWriter(System.out, true);
 
@@ -54,6 +55,22 @@ public class SearchExperiments {
     try {
       String ex2g = SearchUtils.search(strings, (s) -> s.contains("u"));
       pen.println("The first string of exactly six letters is " + ex2g);
+    } catch (Exception e) {
+      pen.println("There are no strings of exactly six letters.");
+    } // try/catch
+
+
+
+    try {
+      Integer randNum =  Integer.valueOf((int) (Math.random() * 1000));
+      Integer[] largeTmp = new Integer[1000];
+      for(int i = 0; i < largeTmp.length; i++){
+        largeTmp[i] = Integer.valueOf(i);
+      }
+      ArrayList<Integer> large = new ArrayList<Integer>(Arrays.asList(largeTmp));
+      int result = SearchUtils.search(large, (n) -> n.equals(randNum));
+      pen.println("Index of the random number is " + result);    
+      pen.println("Count " + SearchExperiments.count); 
     } catch (Exception e) {
       pen.println("There are no strings of exactly six letters.");
     } // try/catch
