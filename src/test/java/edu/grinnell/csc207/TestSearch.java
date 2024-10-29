@@ -112,4 +112,21 @@ public class TestSearch {
     assertBinarySearchFinds(8, new int[] { 1,2,3,4,5,6,7,8,9}, 9);
   } // testBinarySearchTwo()
 
+
+  @Test
+  void testBinaryExercise4() throws Exception{
+    for (int s = 1 ; s <= 32; s++) {
+      int[] array1 = new int[s];
+      for (int i = 0; i < s ; i++){
+        array1[i] = i*2;
+      } 
+      for (int i = 0; i < s ; i++){
+        assert(SearchUtils.binarySearch(array1, 2*i) == i);
+        assertBinarySearchFails(array1, 2*i+1);
+      }
+    }
+    
+  }
+
+
 } // class TestSearch
