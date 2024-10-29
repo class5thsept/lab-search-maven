@@ -32,7 +32,19 @@ public class SearchUtils {
    *   values[index] == val
    */
   static int iterativeBinarySearch(int[] vals, int i) throws Exception {
-    return 0;   // STUB
+    int upperBound = vals.length;
+    int lowerBound = 0;
+    while (upperBound >= lowerBound) {
+      int middleBound = (upperBound + lowerBound) / 2;
+      if (vals[middleBound] == i) {
+        return middleBound;
+      } else if (vals[middleBound] > i) {
+        upperBound = middleBound - 1;
+      } else {
+        lowerBound = middleBound + 1;
+      }
+    }
+    throw new Exception();
   } // iterativeBinarySearch
 
   /**
@@ -130,8 +142,8 @@ public class SearchUtils {
    *   values[index] == val
    */
   public static int binarySearch(int[] vals, int i) throws Exception {
-    return 0;
-    // return interativeBinarySearch(vals, i);
+    //return 0;
+    return iterativeBinarySearch(vals, i);
     // return recursiveBinarySearch(vals, i);
   } // binarySearch
 
